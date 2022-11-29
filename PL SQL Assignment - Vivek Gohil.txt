@@ -1,0 +1,42 @@
+1. Write a PL/SQL program to arrange the number of two variable in such a way that the small number will store in num_small variable and large number will store in num_large variable.
+2. Write a PL/SQL program to check whether a number is even or odd.
+3. Write a PL/SQL program to check whether a date falls on weekend i.e. SATURDAY or SUNDAY.
+4. Write a PL/SQL program to display the description against a grade.
+5. Write a PL/SQL program to display the description against a grade using CASE statement.
+6. Write a PL/SQL program to display the description against a grade using CASE statement with EXCEPTION.
+7. Write a PL/SQL program to check whether a given number is positive, negative or zero.
+8. Write a PL/SQL program to check whether a given character is letter or digit.
+9. Write a PL/SQL program to convert a temperature in scale Fahrenheit to Celsius and vice versa.
+10. Write a PL/SQL program to display which day is a specific date.
+11. Write a program in PL/SQL to print the value of a variable inside and outside a loop using LOOP EXIT statement.
+12. Write a program in PL/SQL to print the value of a variable inside and outside a loop using LOOP WHEN EXIT statement.
+13. Write a program in PL/SQL to show the uses of nested loop.
+14. Write a program in PL/SQL using nested loop with EXIT WHEN statement.
+15. Write a program in PL/SQL using loop with CONTINUE statement.
+16. Write a program in PL/SQL using loop with CONTINUE WHEN statement.
+17. Write a program in PL/SQL to print 1st n numbers.
+18. Write a program in PL/SQL to print 1st n numbers with a difference of 3 and starting from 1.
+19. Write a program in PL/SQL to show the value of a same variable declared as local and global.
+20. Write a program in PL/SQL to explain the uses of nested for loop with label.
+21. Write a program in PL/SQL to print the prime numbers between 1 to 50.
+22. Write a program in PL/SQL to check whether a number is prime or not using goto statement with for loop.
+23. Write a program in PL/SQL to insert records from one table to another.
+24. Write a program in PL/SQL to insert a row if the featched value for a component is specified.
+
+
+DECLARE
+dt1 DATE := TO_DATE('&new_dt', 'DD-MON-YYYY');
+get_day VARCHAR2(15);
+BEGIN
+get_day := RTRIM(TO_CHAR(dt1, 'DAY'));
+IF get_day IN ('SATURDAY', 'SUNDAY') THEN
+dbms_output.new_line;
+DBMS_OUTPUT.PUT_LINE 
+('The day of the given date is '||get_day||' and it falls on weekend');
+ELSE
+dbms_output.new_line;
+DBMS_OUTPUT.PUT_LINE ('The day of the given date is '||get_day||' and it does not fall on the weekend');
+END IF;
+DBMS_OUTPUT.PUT_LINE ('Execution  done successfully.');
+END;
+/

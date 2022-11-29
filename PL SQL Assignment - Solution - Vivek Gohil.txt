@@ -1,0 +1,69 @@
+1. Write a PL/SQL program to arrange the number of two variable in such a way that the small number will store in num_small variable and large number will store in num_large variable.
+
+Sample Solution:
+
+PL/SQL Code:
+
+DECLARE
+num_small NUMBER := 8;
+num_large NUMBER := 5;
+num_temp NUMBER;
+BEGIN
+
+IF num_small > num_large THEN
+num_temp := num_small;
+num_small := num_large;
+num_large := num_temp;
+END IF;
+
+DBMS_OUTPUT.PUT_LINE ('num_small = '||num_small);
+DBMS_OUTPUT.PUT_LINE ('num_large = '||num_large);
+END;
+/
+Sample Output:
+
+num_small = 5
+num_large = 8
+
+2. Write a PL/SQL procedure to calculate the incentive on a target achieved and display the message either the record updated or not.
+
+Sample Solution:
+
+PL/SQL Code:
+
+DECLARE
+  PROCEDURE test1 (
+    sal_achieve  NUMBER,
+    target_qty  NUMBER,
+    emp_id NUMBER
+  )
+  IS
+    incentive   NUMBER := 0;
+    updated  VARCHAR2(3) := 'No';
+  BEGIN
+    IF sal_achieve > (target_qty + 200) THEN
+      incentive := (sal_achieve - target_qty)/4;
+ 
+      UPDATE emp
+      SET salary = salary + incentive 
+      WHERE employee_id = emp_id;
+ 
+      updated := 'Yes';
+    END IF;
+ 
+    DBMS_OUTPUT.PUT_LINE (
+      'Table updated?  ' || updated || ', ' || 
+      'incentive = ' || incentive || '.'
+    );
+  END test1;
+BEGIN
+  test1(2300, 2000, 144);
+  test1(3600, 3000, 145);
+END;
+/
+Sample Output:
+
+Table updated?  Yes, incentive = 75.
+Table updated?  Yes, incentive = 150.
+
+PL/SQL procedure successfully completed.
